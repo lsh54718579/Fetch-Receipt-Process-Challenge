@@ -2,6 +2,7 @@ package com.example.fetchreceiptprocesschallenge.model;
 
 
 
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import java.util.Objects;
 
@@ -9,9 +10,11 @@ import java.util.Objects;
 public class Item {
 
   @Pattern(regexp = "^[\\w\\s\\-]+$")
+  @NotNull
   private String shortDescription;
 
   @Pattern(regexp = "^\\d+\\.\\d{2}$")
+  @NotNull
   private String price;
 
   public Item(String shortDescription, String price) {

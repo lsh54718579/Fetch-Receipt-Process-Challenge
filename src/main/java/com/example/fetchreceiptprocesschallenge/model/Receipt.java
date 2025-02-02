@@ -1,6 +1,8 @@
 package com.example.fetchreceiptprocesschallenge.model;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jdk.jfr.Description;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -14,18 +16,20 @@ import java.util.Objects;
 public class Receipt {
 
   @Pattern(regexp = "^[\\w\\s\\-&]+$")
-  @NotBlank
+  @NotNull
   @Description("The name of the retailer or store the receipt is from.\n")
   private String retailer;
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+  @NotNull
   private LocalDate purchaseDate;
 
   private String purchaseTime;
 
-  private List<Item> items;
+  private List<@Valid Item> items;
 
   @Pattern(regexp = "^\\d+\\.\\d{2}$")
+  @NotNull
   private String total;
 
   public Receipt(String retailer, LocalDate purchaseDate, String purchaseTime, List<Item> items, String total) {
