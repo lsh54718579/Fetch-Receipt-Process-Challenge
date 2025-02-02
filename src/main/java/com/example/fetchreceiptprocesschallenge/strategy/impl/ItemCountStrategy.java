@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
  */
 @Component
-class ItemCountStrategy implements PointCalculationStrategy {
+public class ItemCountStrategy implements PointCalculationStrategy {
     private final Logger logger = LoggerFactory.getLogger(ReceiptService.class);
 
     @Override

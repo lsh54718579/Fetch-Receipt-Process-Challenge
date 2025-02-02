@@ -15,7 +15,7 @@ import java.time.LocalTime;
 
  */
 @Component
-class AfternoonPurchaseStrategy implements PointCalculationStrategy {
+public class AfternoonPurchaseStrategy implements PointCalculationStrategy {
     private final Logger logger = LoggerFactory.getLogger(ReceiptService.class);
 
     @Override

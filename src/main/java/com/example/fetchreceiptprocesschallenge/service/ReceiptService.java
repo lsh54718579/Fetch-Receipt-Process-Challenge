@@ -26,11 +26,12 @@ public class ReceiptService {
 
     public String processReceipt(@Valid Receipt receipt) {
         long points = pointCalculatorUtil.calculateTotalPoints(receipt);
-        logger.info("total points is " + points);
+        logger.info("In total points");
         return receiptRepo.storeReceipt(points);
     }
 
     public long getPoints(String id) {
+        logger.info("get points with id ");
         return receiptRepo.getPoints(id);
     }
 

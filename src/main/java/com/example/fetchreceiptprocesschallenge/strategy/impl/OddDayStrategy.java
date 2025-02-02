@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 6 points if the day in the purchase date is odd.
  */
 @Component
-class OddDayStrategy implements PointCalculationStrategy {
+public class OddDayStrategy implements PointCalculationStrategy {
     private final Logger logger = LoggerFactory.getLogger(ReceiptService.class);
 
     @Override

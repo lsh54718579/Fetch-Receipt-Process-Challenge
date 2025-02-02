@@ -17,7 +17,7 @@ The result is the number of points earned.
  */
 
 @Component
-class DescriptionLengthStrategy implements PointCalculationStrategy {
+public class DescriptionLengthStrategy implements PointCalculationStrategy {
     private final Logger logger = LoggerFactory.getLogger(ReceiptService.class);
 
     @Override
