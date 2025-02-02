@@ -7,6 +7,7 @@ import com.example.fetchreceiptprocesschallenge.model.response.ProcessReceiptRes
 import com.example.fetchreceiptprocesschallenge.service.ReceiptService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,14 +23,14 @@ public class ReceiptController {
         this.receiptService = receiptService;
     }
 
-    @PostMapping("/process")
+    @PostMapping(value = "/process", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ProcessReceiptResponse> processReceipt(@Valid @RequestBody Receipt receipt) {
         String receiptId = receiptService.processReceipt(receipt);
         ProcessReceiptResponse response = new ProcessReceiptResponse(receiptId);
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/{id}/points")
+    @GetMapping(value = "/{id}/points", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PointsResponse> getPoints(@PathVariable String id) {
         long points = receiptService.getPoints(id);
         PointsResponse pointsResponse = new PointsResponse(points);
