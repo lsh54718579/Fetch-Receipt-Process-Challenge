@@ -35,7 +35,7 @@ public class ReceiptController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping(value = "/{id}/points", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/{id}/points")
     public ResponseEntity<PointsResponse> getPoints(@PathVariable String id) {
         logger.info("Calling getPoints");
         long points = receiptService.getPoints(id);
