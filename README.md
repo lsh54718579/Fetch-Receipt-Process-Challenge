@@ -30,10 +30,10 @@ cd Fetch-Receipt-Process-Challenge
 ## Step 2: Build and run the Docker Image:
 In the same directory as the local repo, run the following docker command:
 ````
-docker build -t receipt-processor .
+docker build -t receipt-process-service .
 ````
 ````
-docker run -p 8080:8080 receipt-processor
+docker run -p 8080:8080 receipt-process-service
 ````
 
 ## Step 3: Call the endpoints 
@@ -74,9 +74,9 @@ docker run -p 8080:8080 receipt-processor
 
 #### Example Response: 
 ````
-{
-"id": "7fb1377b-b223-49d9-a31a-5a02701dd310"
-}
+   {
+   "id": "7fb1377b-b223-49d9-a31a-5a02701dd310"
+   }
 ````
 
 ### 2. Get Points for Receipt
@@ -86,8 +86,8 @@ docker run -p 8080:8080 receipt-processor
 ````
 #### Example Response:
 ````
-{
-"points": 28
-}
+   {
+   "points": 28
+   }
 ````
 
