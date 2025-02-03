@@ -28,7 +28,7 @@ git clone https://github.com/lsh54718579/Fetch-Receipt-Process-Challenge.git
 cd Fetch-Receipt-Process-Challenge
 ````
 ## Step 2: Build and run the Docker Image:
-In the same directory as the local repo, run the following docker command:
+In the same directory as the local repo, run the following docker command in terminal:
 ````
 docker build -t receipt-process-service .
 ````
