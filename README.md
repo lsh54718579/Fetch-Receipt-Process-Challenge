@@ -1,6 +1,6 @@
 # Receipt Processor Web Service
-- This service processes receipts, assigns points based on rules, and provides endpoints to interact with receipts and points.
 - Challenge problem statement: https://github.com/fetch-rewards/receipt-processor-challenge
+- This service processes receipts, assigns points based on rules, and provides endpoints to interact with receipts and points.
 
 ## Language and Framework
 - Java 17
