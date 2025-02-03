@@ -87,7 +87,7 @@ docker run -p 8080:8080 receipt-processor
 #### Example Response:
 ````
 {
-"points": 32
+"points": 28
 }
 ````
 
