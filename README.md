@@ -87,10 +87,16 @@ docker run -p 8080:8080 receipt-process-service
 ````
    curl -X GET http://localhost:8080/receipts/user/1/receipt/7fb1377b-b223-49d9-a31a-5a02701dd310/points
 ````
-#### Example Response:
+#### Example 200 Response:
 ````
    {
    "points": 28
    }
 ````
 
+#### Example 400 Response:
+````
+   {
+   "points": -1
+   }
+````
