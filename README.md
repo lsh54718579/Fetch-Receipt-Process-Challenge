@@ -1,6 +1,9 @@
 # Receipt Processor Web Service
 - Challenge problem statement: https://github.com/fetch-rewards/receipt-processor-challenge
 - This service processes receipts, assigns points based on rules, and provides endpoints to interact with receipts and points.
+- Feature update: 
+  - Added a point multiplier field to grant 2 times points on 5th receipt scan and 3 times points on 10th receipt scan
+  - Added a userId field in Process Request endpoint to keep track of number of receipts for a user
 
 ## Language and Framework
 - Java 17
@@ -40,7 +43,7 @@ docker run -p 8080:8080 receipt-process-service
 ### 1. Process Receipt 
 #### Example Request
 ````
-   curl -X POST http://localhost:8080/receipts/process \
+   curl -X POST http://localhost:8080/receipts/process/user/1 \
    -H "Content-Type: application/json" \
    -d '{
    "retailer": "Target",
@@ -82,7 +85,7 @@ docker run -p 8080:8080 receipt-process-service
 ### 2. Get Points for Receipt
 #### Example Request
 ````
-   curl -X GET http://localhost:8080/receipts/7fb1377b-b223-49d9-a31a-5a02701dd310/points
+   curl -X GET http://localhost:8080/receipts/user/1/receipt/7fb1377b-b223-49d9-a31a-5a02701dd310/points
 ````
 #### Example Response:
 ````
