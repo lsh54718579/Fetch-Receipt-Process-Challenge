@@ -16,9 +16,9 @@ public class MultipleOfQuarterStrategy implements PointCalculationStrategy {
     private final Logger logger = LoggerFactory.getLogger(ReceiptService.class);
 
     @Override
-    public long calculatePoints(Receipt receipt) {
+    public long calculatePoints(Receipt receipt, int multiplier) {
         int totalCents = CurrencyConversionUtil.parseCents(receipt.getTotal());
-        long points = CurrencyConversionUtil.isMultipleOfQuarter(totalCents) ? 25 : 0;
+        long points = CurrencyConversionUtil.isMultipleOfQuarter(totalCents) ? 25L * multiplier : 0;
         logger.info("Calculating the multiple of quarter" + points);
         return points;
 

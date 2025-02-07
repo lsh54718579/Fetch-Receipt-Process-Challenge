@@ -19,11 +19,9 @@ public class PointCalculatorUtil {
         this.strategies = strategies;
     }
 
-    public long calculateTotalPoints(Receipt receipt) {
+    public long calculateTotalPoints(Receipt receipt, int multiplier) {
         return strategies.stream()
-                .mapToLong(strategy -> strategy.calculatePoints(receipt))
+                .mapToLong(strategy -> strategy.calculatePoints(receipt, multiplier))
                 .sum();
     }
-
-
 }

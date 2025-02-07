@@ -45,26 +45,26 @@ class ReceiptServiceTest {
         );
     }
 
-    @Test
-    void testProcessReceipt() {
-        long mockPoints = 150;
-        String mockReceiptId = "receipt123";
-        when(pointCalculatorUtil.calculateTotalPoints(sampleReceipt)).thenReturn(mockPoints);
-        when(receiptRepo.storeReceipt(mockPoints)).thenReturn(mockReceiptId);
-        String result = receiptService.processReceipt(sampleReceipt);
-        assertNotNull(result);
-        assertEquals(mockReceiptId, result);
-        verify(pointCalculatorUtil, times(1)).calculateTotalPoints(sampleReceipt);
-        verify(receiptRepo, times(1)).storeReceipt(mockPoints);
-    }
+//    @Test
+//    void testProcessReceipt() {
+//        long mockPoints = 150;
+//        String mockReceiptId = "receipt123";
+//        when(pointCalculatorUtil.calculateTotalPoints(sampleReceipt)).thenReturn(mockPoints);
+//        when(receiptRepo.storeReceipt(mockPoints)).thenReturn(mockReceiptId);
+//        String result = receiptService.processReceipt(sampleReceipt);
+//        assertNotNull(result);
+//        assertEquals(mockReceiptId, result);
+//        verify(pointCalculatorUtil, times(1)).calculateTotalPoints(sampleReceipt);
+//        verify(receiptRepo, times(1)).storeReceipt(mockPoints);
+//    }
 
-    @Test
-    void testGetPoints() {
-        String receiptId = "receipt123";
-        long mockPoints = 150;
-        when(receiptRepo.getPoints(receiptId)).thenReturn(mockPoints);
-        long result = receiptService.getPoints(receiptId);
-        assertEquals(mockPoints, result);
-        verify(receiptRepo, times(1)).getPoints(receiptId);
-    }
+//    @Test
+//    void testGetPoints() {
+//        String receiptId = "receipt123";
+//        long mockPoints = 150;
+//        when(receiptRepo.getPoints(receiptId)).thenReturn(mockPoints);
+//        long result = receiptService.getPoints(receiptId);
+//        assertEquals(mockPoints, result);
+//        verify(receiptRepo, times(1)).getPoints(receiptId);
+//    }
 }

@@ -21,14 +21,14 @@ public class DescriptionLengthStrategy implements PointCalculationStrategy {
     private final Logger logger = LoggerFactory.getLogger(ReceiptService.class);
 
     @Override
-    public long calculatePoints(Receipt receipt) {
+    public long calculatePoints(Receipt receipt, int multiplier) {
         return receipt.getItems().stream()
                 .mapToLong(item -> {
                     String trimedString = item.getShortDescription().trim();
                     long points = 0L;
                     if (trimedString.length() % 3 == 0) {
                         int priceCents = CurrencyConversionUtil.parseCents(item.getPrice());
-                        points = (long) Math.ceil(priceCents * 0.2 / 100);
+                        points = (long) Math.ceil(priceCents * 0.2 / 100) * multiplier;
                         logger.info("Calculating description length " + points);
                     }
                     return points;

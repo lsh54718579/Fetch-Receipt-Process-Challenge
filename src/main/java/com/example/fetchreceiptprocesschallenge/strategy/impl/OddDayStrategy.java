@@ -15,8 +15,8 @@ public class OddDayStrategy implements PointCalculationStrategy {
     private final Logger logger = LoggerFactory.getLogger(ReceiptService.class);
 
     @Override
-    public long calculatePoints(Receipt receipt) {
-        long points = receipt.getPurchaseDate().getDayOfMonth() % 2 != 0 ? 6 : 0;
+    public long calculatePoints(Receipt receipt, int multiplier) {
+        long points = receipt.getPurchaseDate().getDayOfMonth() % 2 != 0 ? 6L * multiplier: 0;
         logger.info("Calculating OddDayStrategy is " + points);
         return points;
     }

@@ -16,9 +16,9 @@ public class RoundDollarStrategyImpl implements PointCalculationStrategy {
     private final Logger logger = LoggerFactory.getLogger(ReceiptService.class);
 
     @Override
-    public long calculatePoints(Receipt receipt) {
+    public long calculatePoints(Receipt receipt, int multiplier) {
         int totalCents = CurrencyConversionUtil.parseCents(receipt.getTotal());
-        long points = CurrencyConversionUtil.isRoundDollar(totalCents) ? 50 : 0;
+        long points = CurrencyConversionUtil.isRoundDollar(totalCents) ? 50L * multiplier: 0;
         logger.info("Calculating round dollar point" + points);
         return points;
     }

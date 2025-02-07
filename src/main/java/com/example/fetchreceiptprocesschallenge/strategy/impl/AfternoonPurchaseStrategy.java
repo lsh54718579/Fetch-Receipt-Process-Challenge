@@ -19,11 +19,11 @@ public class AfternoonPurchaseStrategy implements PointCalculationStrategy {
     private final Logger logger = LoggerFactory.getLogger(ReceiptService.class);
 
     @Override
-    public long calculatePoints(Receipt receipt) {
+    public long calculatePoints(Receipt receipt, int multiplier) {
         try {
             LocalTime time = LocalTime.parse(receipt.getPurchaseTime());
             long points = time.isAfter(LocalTime.of(14, 0)) &&
-                   time.isBefore(LocalTime.of(16, 0)) ? 10 : 0;
+                   time.isBefore(LocalTime.of(16, 0)) ? 10L * multiplier : 0;
             logger.info("Calculating afternoon purchase point is " + points);
             return points;
         } catch (Exception e) {

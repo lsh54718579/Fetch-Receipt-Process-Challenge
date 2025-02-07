@@ -16,8 +16,8 @@ public class ItemCountStrategy implements PointCalculationStrategy {
     private final Logger logger = LoggerFactory.getLogger(ReceiptService.class);
 
     @Override
-    public long calculatePoints(Receipt receipt) {
-        long points = (receipt.getItems().size() / 2) * 5L;
+    public long calculatePoints(Receipt receipt, int multiplier) {
+        long points = (receipt.getItems().size() / 2) * 5L * multiplier;
         logger.info("Calculating ItemCount" + points);
         return points;
     }

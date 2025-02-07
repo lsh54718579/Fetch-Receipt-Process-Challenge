@@ -21,24 +21,24 @@ public class ReceiptController {
     private final ReceiptService receiptService;
     private final Logger logger = LoggerFactory.getLogger(ReceiptService.class);
 
-
     @Autowired
     public ReceiptController(ReceiptService receiptService) {
         this.receiptService = receiptService;
     }
 
-    @PostMapping(value = "/process", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ProcessReceiptResponse> processReceipt(@Valid @RequestBody Receipt receipt) {
+    @PostMapping(value = "/process/user/{userId}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ProcessReceiptResponse> processReceipt(@Valid @RequestBody Receipt receipt,
+                                                                 @PathVariable Long userId) {
         logger.info("Calling processReceipt");
-        String receiptId = receiptService.processReceipt(receipt);
+        String receiptId = receiptService.processReceipt(userId, receipt);
         ProcessReceiptResponse response = new ProcessReceiptResponse(receiptId);
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping(value = "/{id}/points")
-    public ResponseEntity<PointsResponse> getPoints(@PathVariable String id) {
+    @GetMapping(value = "user/{userId}/receipt/{receiptId}/points")
+    public ResponseEntity<PointsResponse> getPoints(@PathVariable Long userId, @PathVariable String receiptId) {
         logger.info("Calling getPoints");
-        long points = receiptService.getPoints(id);
+        long points = receiptService.getPoints(userId, receiptId);
         PointsResponse pointsResponse = new PointsResponse(points);
         return ResponseEntity.ok(pointsResponse);
     }

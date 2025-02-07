@@ -14,9 +14,13 @@ import org.springframework.stereotype.Component;
 public class RetailerStrategyImpl implements PointCalculationStrategy {
     private final Logger logger = LoggerFactory.getLogger(ReceiptService.class);
 
+    /*
+    nth number of receipts received for a user
+     */
+
     @Override
-    public long calculatePoints(Receipt receipt) {
-        long points = receipt.getRetailer().replaceAll("[^a-zA-Z0-9]", "").length();
+    public long calculatePoints(Receipt receipt, int multiplier) {
+        long points = (long) receipt.getRetailer().replaceAll("[^a-zA-Z0-9]", "").length() * multiplier;
         logger.info("Calculating retailer point" + points);
         return points;
     }
