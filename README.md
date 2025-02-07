@@ -1,6 +1,6 @@
 # Receipt Processor Web Service
-This service processes receipts, assigns points based on rules, and provides endpoints to interact with receipts and points.
-Challenge problem statement: https://github.com/fetch-rewards/receipt-processor-challenge
+- Challenge problem statement: https://github.com/fetch-rewards/receipt-processor-challenge
+- This service processes receipts, assigns points based on rules, and provides endpoints to interact with receipts and points.
 
 ## Language and Framework
 - Java 17
@@ -28,12 +28,12 @@ git clone https://github.com/lsh54718579/Fetch-Receipt-Process-Challenge.git
 cd Fetch-Receipt-Process-Challenge
 ````
 ## Step 2: Build and run the Docker Image:
-In the same directory as the local repo, run the following docker command:
+In the same directory as the local repo, run the following docker command in terminal:
 ````
-docker build -t receipt-processor .
+docker build -t receipt-process-service .
 ````
 ````
-docker run -p 8080:8080 receipt-processor
+docker run -p 8080:8080 receipt-process-service
 ````
 
 ## Step 3: Call the endpoints 
@@ -74,9 +74,9 @@ docker run -p 8080:8080 receipt-processor
 
 #### Example Response: 
 ````
-{
-"id": "7fb1377b-b223-49d9-a31a-5a02701dd310"
-}
+   {
+   "id": "7fb1377b-b223-49d9-a31a-5a02701dd310"
+   }
 ````
 
 ### 2. Get Points for Receipt
@@ -86,8 +86,8 @@ docker run -p 8080:8080 receipt-processor
 ````
 #### Example Response:
 ````
-{
-"points": 28
-}
+   {
+   "points": 28
+   }
 ````
 
